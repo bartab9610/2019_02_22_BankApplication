@@ -44,7 +44,7 @@ namespace _2019_02_22_BankApplication
         {
             var Forras_szamla = Keres(honnan);
             var Cel_szamla = Keres(hova);
-            if (Forras_szamla.Osszeg < osszeg)
+            if (Forras_szamla == null || Cel_szamla == null || Forras_szamla.Osszeg < osszeg)
             {
                 return false;
             }

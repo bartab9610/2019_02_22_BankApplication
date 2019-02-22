@@ -39,5 +39,19 @@ namespace _2019_02_22_BankApplication.Tests
             Assert.AreEqual(0, OTP.Egyenleg("98765"));
             Assert.IsFalse(sikeres);
         }
+
+        [Test]
+        public void Utalas_nem_letezo_szamlara()
+        {
+            Bank OTP = new Bank();
+            OTP.Ujszamla("Tesztnév", "01234");
+            OTP.EgyenlegFeltolt("01234", 15000);
+            OTP.Ujszamla("Tesztnév2", "98765");
+            var sikeres = OTP.Utal("01234", "00000", 10000);
+
+            Assert.AreEqual(15000, OTP.Egyenleg("01234"));
+            Assert.AreEqual(0, OTP.Egyenleg("98765"));
+            Assert.IsFalse(sikeres);
+        }
     }
 }
