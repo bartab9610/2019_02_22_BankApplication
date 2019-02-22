@@ -38,7 +38,7 @@ namespace _2019_02_22_BankApplication
                     return sz;
                 }
             }
-            return null;
+            throw new Hibas_szamlaszam_Exception(szamlaszam);
         }
         public bool Utal(string honnan, string hova, ulong osszeg) // ulong -> előjel nélküli
         {
