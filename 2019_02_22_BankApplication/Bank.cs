@@ -51,5 +51,11 @@ namespace _2019_02_22_BankApplication
         {
             return Keres(szamlaszam).Osszeg;
         }
+
+        public void EgyenlegFeltolt(string szamlaszam, ulong osszeg)
+        {
+            Keres(szamlaszam).Osszeg += osszeg;
+        }
+
     }
 }
