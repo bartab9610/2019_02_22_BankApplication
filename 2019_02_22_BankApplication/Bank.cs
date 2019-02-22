@@ -10,7 +10,8 @@ namespace _2019_02_22_BankApplication
     {
         class Szamla
         {
-
+            public string Nev { get; set; }
+            public string Szamlaszam { get; set; }
         }
 
         public void Ujszamla(string nev, string szamlaszam)
