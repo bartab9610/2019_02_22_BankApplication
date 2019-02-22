@@ -40,12 +40,17 @@ namespace _2019_02_22_BankApplication
             }
             return null;
         }
-        public void Utal(string honnan, string hova, ulong osszeg) // ulong -> előjel nélküli
+        public bool Utal(string honnan, string hova, ulong osszeg) // ulong -> előjel nélküli
         {
             var Forras_szamla = Keres(honnan);
             var Cel_szamla = Keres(hova);
+            if (Forras_szamla.Osszeg < osszeg)
+            {
+                return false;
+            }
             Forras_szamla.Osszeg -= osszeg;
             Cel_szamla.Osszeg += osszeg;
+            return true;
         }
         public ulong Egyenleg(string szamlaszam)
         {
